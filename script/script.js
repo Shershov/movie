@@ -1,5 +1,4 @@
-let films = {
-    '1': {
+let films = [{
         'img': 'img/posters/bloodshot.jpeg',
         'name': 'Бладшот',
         'year': '2019',
@@ -7,7 +6,7 @@ let films = {
         'genre': 'Боевик',
         'director': 'Дейв Уилсон',
     },
-    '2': {
+    {
         'img': 'img/posters/joker.jpeg',
         'name': 'Джокер',
         'year': '2019',
@@ -15,7 +14,7 @@ let films = {
         'genre': 'Драма',
         'director': 'Тодд Филлипс',
     },
-    '3': {
+    {
         'img': 'img/posters/casino.jpeg',
         'name': 'Казино',
         'year': '1995',
@@ -23,7 +22,7 @@ let films = {
         'genre': 'Драма',
         'director': 'Мартин Скорсезе',
     },
-    '4': {
+    {
         'img': 'img/posters/boy.jpeg',
         'name': 'Кукла-2',
         'year': '2020',
@@ -31,7 +30,7 @@ let films = {
         'genre': 'Ужасы',
         'director': 'Уильям Брент Белл',
     },
-    '5': {
+    {
         'img': 'img/posters/primal.jpeg',
         'name': 'Звериная ярость',
         'year': '2019',
@@ -40,7 +39,7 @@ let films = {
         'director': 'Ник Пауэлл',
 
     },
-    '6': {
+    {
         'img': 'img/posters/aviator.jpeg',
         'name': 'Авиатор',
         'year': '2004',
@@ -49,7 +48,7 @@ let films = {
         'director': 'Мартин Скорсезе',
 
     },
-    '7': {
+    {
         'img': 'img/posters/Wasabi-1.jpeg',
         'name': 'Васаби',
         'year': '2001',
@@ -57,7 +56,7 @@ let films = {
         'genre': 'комедия',
         'director': 'Жерар Кравчик',
     },
-    '8': {
+    {
         'img': 'img/posters/Taxi-4.jpeg',
         'name': 'Такси-4',
         'year': '2007',
@@ -65,7 +64,7 @@ let films = {
         'genre': 'комедия',
         'director': 'Жерар Кравчик',
     },
-    '9': {
+    {
         'img': 'img/posters/Unforgiven.jpeg',
         'name': 'Непрощенный',
         'year': '2018',
@@ -73,7 +72,7 @@ let films = {
         'genre': 'Драма',
         'director': 'Сарик Андреасян',
     },
-    '10': {
+    {
         'img': 'img/posters/Konvert.jpeg',
         'name': 'Конверт',
         'year': '2017',
@@ -81,38 +80,38 @@ let films = {
         'genre': 'Ужасы',
         'director': 'Владимир Марков',
     },
-    '11': {
+    {
         'img': 'img/posters/Country-03.jpeg',
         'name': 'Страна 03',
         'year': '2015',
         'country': 'Россия',
         'genre': 'Комедия',
         'director': 'Василий Сигарев',
-    },
-};
+    }
+];
 
 // Добавление компонентов
 
-for (let key in films) {
+function addFilm(film) {
     let node = document.createElement('div');
     node.className = 'film__card';
     let out = '';
 
     out += `<a class="poster" href="">`;
-    out += `<img src="${films[key].img}" alt="">`;
+    out += `<img src="${film.img}" alt="">`;
     out += `<div class="film__descr">`;
-    out += `<h3>${films[key].name} </h3>`;
-    out += `<span>${films[key].year}, </span>`;
-    out += `<span>${films[key].country}, </span>`;
-    out += `<span>${films[key].genre}, </span>`;
-    out += `<span>${films[key].director}</span>`;
+    out += `<h3>${film.name} </h3>`;
+    out += `<span>${film.year}, </span>`;
+    out += `<span>${film.country}, </span>`;
+    out += `<span>${film.genre}, </span>`;
+    out += `<span>${film.director}</span>`;
     out += `</div>`;
     out += `</a>`;
 
     node.innerHTML = out;
     document.getElementById('films').appendChild(node);
-
-};
+}
+films.forEach(addFilm);
 
 // Модальное окно
 
