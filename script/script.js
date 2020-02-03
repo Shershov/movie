@@ -117,7 +117,7 @@ films.forEach(addFilm);
 
 let modal = document.getElementById('mymodal');
 let btn = document.getElementById('btn-modal-open');
-let save = document.getElementsByClassName('save-btn');
+let save = document.getElementsByClassName('save-btn')[0];
 
 btn.onclick = function() {
     modal.style.display = 'block';
@@ -131,4 +131,43 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = 'none';
     }
+}
+
+// Отмена отправки формы на сревер
+
+function cancelSubmit(element) {
+    if (element.addEventListener) {
+        element.addEventListener("submit", function(evt) {
+            evt.preventDefault();
+            window.history.back();
+        }, true);
+    } else {
+        element.attachEvent('onsubmit', function(evt) {
+            evt.preventDefault();
+            window.history.back();
+        });
+    }
+}
+
+cancelSubmit(document.getElementsByClassName('modal-form')[0]);
+
+// Получение данных из формы
+
+function addNewFilm(form) {
+    let obj = {
+        'img': form.elements['poster'].value,
+        'name': form.elements['name'].value,
+        'year': form.elements['year'].value,
+        'country': form.elements['country'].value,
+        'genre': form.elements['genre'].value,
+        'director': form.elements['director'].value,
+    }
+    addFilm(obj);
+    modal.style.display = 'none';
+}
+
+
+
+save.onclick = function() {
+    addNewFilm(this.form)
 }
