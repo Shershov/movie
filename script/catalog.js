@@ -49,6 +49,14 @@ let films = [{
 
     },
     {
+        'img': 'img/posters/unnamed.jpeg',
+        'name': 'Непрощенный',
+        'year': '1992',
+        'country': 'США',
+        'genre': 'Вестерн',
+        'director': 'Клинт Иствуд',
+    },
+    {
         'img': 'img/posters/Wasabi-1.jpeg',
         'name': 'Васаби',
         'year': '2001',
