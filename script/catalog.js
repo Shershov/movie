@@ -97,3 +97,5 @@ let films = [{
         'director': 'Василий Сигарев',
     }
 ];
+
+// localStorage.setItem('films', JSON.stringify(films))

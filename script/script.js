@@ -45,6 +45,24 @@ function renderFilms(genre) {
 }
 
 
+function searchFilms(input) {
+
+    document.getElementById('films').innerHTML = '';
+
+    let renderFilms = films;
+
+    if (typeof input !== 'undefined' && input !== 'Фильмы') {
+        renderFilms = films.filter(function(film) {
+            return (film.name.toLowerCase().includes(input) ||
+                (film.director.toLowerCase().includes(input)))
+        });
+    }
+
+    renderFilms.forEach(addFilm);
+}
+
+
+
 loadFilms();
 renderFilms();
 
@@ -123,3 +141,8 @@ function addFilmToLocalstorage(obj) {
 save.onclick = function() {
     addNewFilm(this.form)
 }
+
+document.getElementById('search').addEventListener('submit', function(evt) {
+    evt.preventDefault();
+    searchFilms(this.elements.searchbox.value);
+})
